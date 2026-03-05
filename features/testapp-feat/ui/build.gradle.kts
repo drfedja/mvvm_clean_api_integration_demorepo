@@ -36,17 +36,22 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
+
+    // dependency injection - hilt
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation)
     ksp(libs.hilt.compiler)
+
+    // modules implementations
     implementation(project(":core:core-ui"))
     implementation(project(":features:testapp-feat:domain"))
+
+    // compose and material
     implementation(libs.androidx.compose.runtime)
+    implementation(libs.material)
     implementation(libs.androidx.material3)
+
+    // junit
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
 }

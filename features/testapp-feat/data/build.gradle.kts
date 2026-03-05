@@ -35,19 +35,25 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    implementation(project(":features:testapp-feat:domain"))
-    testImplementation(libs.junit)
+
+    // hilt di
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
+
+    // junit
     androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    testImplementation(libs.junit)
+
+    // retrofit
     implementation(libs.retrofit)
+
+    // moshi
     implementation(libs.moshi.core)
     implementation(libs.moshi.kotlin)
     implementation(libs.converter.moshi)
     ksp(libs.moshi.codegen)
+
+    // project implementation
     implementation(project(":core:core-api"))
+    implementation(project(":features:testapp-feat:domain"))
 }

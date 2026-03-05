@@ -45,13 +45,15 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
+    // retrofit
     implementation(libs.material)
     implementation(libs.retrofit)
+
+    // junit
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+
+    // hilt di
     ksp(libs.hilt.compiler)
     implementation(libs.hilt.android)
 }

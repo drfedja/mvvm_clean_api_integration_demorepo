@@ -44,27 +44,22 @@ android {
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+
+    // compose
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.compose.ui)
-    implementation(libs.androidx.compose.ui.graphics)
-    implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+
+    // compose navigation
+    implementation(libs.androidx.navigation.compose)
+
+    // hilt di
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
-    implementation(libs.androidx.navigation.runtime.ktx)
-    implementation(libs.androidx.navigation.compose)
+
+    // project implementation
     implementation(project(":core:core-ui"))
+    implementation(project(":core:navigation"))
     implementation(project(":features:testapp-feat:ui"))
     implementation(project(":features:testapp-feat:data"))
-    implementation(project(":features:testapp-feat:domain"))
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.compose.ui.test.junit4)
-    debugImplementation(libs.androidx.compose.ui.tooling)
-    debugImplementation(libs.androidx.compose.ui.test.manifest)
-
-    implementation(project(":core:navigation"))
 }
