@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="repo_name_label">Repo name:</string>
+    <string name="issues_opened_label">No. issues opened:</string>
+    <string name="commit_name">Commit name:</string>
+    <string name="commit_sha">Commit sha:</string>
+    <string name="forks_count">Forks: %1$d</string>
+    <string name="watchers_count">Watchers: %1$d</string>
+</resources>

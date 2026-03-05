@@ -51,6 +51,9 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     implementation(libs.material)
     implementation(libs.androidx.material3)
+    implementation(libs.coil)
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
 
     // junit
     testImplementation(libs.junit)

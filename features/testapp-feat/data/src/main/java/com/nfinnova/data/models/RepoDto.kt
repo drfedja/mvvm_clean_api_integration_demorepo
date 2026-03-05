@@ -2,7 +2,7 @@ package com.nfinnova.data.models
 
 import com.squareup.moshi.Json
 
-data class RepoDto(
+internal data class RepoDto(
     val name: String,
     val id: Int,
     @Json(name = "open_issues")

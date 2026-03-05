@@ -2,7 +2,7 @@ package com.nfinnova.data.models
 
 import com.squareup.moshi.Json
 
-data class RepoDetailsResponse(
+internal data class RepoDetailsResponse(
     val name: String,
     @Json(name = "full_name")
     val fullName: String,
@@ -15,7 +15,7 @@ data class RepoDetailsResponse(
     val openIssuesCount: Int,
 )
 
-data class OwnerDto(
+internal data class OwnerDto(
     val login: String,
     val id: Int,
     @Json(name = "gravatar_id")

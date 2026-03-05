@@ -11,7 +11,17 @@ data class RepoDetailsHeaderData(
     val repoName: String,
     val numberOfForks: Int,
     val numberOfWatchers: Int
-)
+) {
+    companion object {
+        val EMPTY = RepoDetailsHeaderData(
+            userAvatarUrl = "",
+            userName = "",
+            repoName = "",
+            numberOfForks = 0,
+            numberOfWatchers = 0
+        )
+    }
+}
 
 data class TagData(
     val commitName: String,

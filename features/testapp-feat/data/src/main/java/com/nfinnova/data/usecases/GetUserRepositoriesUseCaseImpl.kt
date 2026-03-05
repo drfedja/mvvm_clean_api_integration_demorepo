@@ -5,7 +5,7 @@ import com.nfinnova.domain.repository.GitHubRepository
 import com.nfinnova.domain.usecases.GetUserRepositoriesUseCase
 import javax.inject.Inject
 
-class GetUserRepositoriesUseCaseImpl @Inject constructor(
+internal class GetUserRepositoriesUseCaseImpl @Inject constructor(
     private val repository: GitHubRepository
 ) : GetUserRepositoriesUseCase {
 

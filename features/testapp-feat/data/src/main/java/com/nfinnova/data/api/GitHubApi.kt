@@ -7,7 +7,7 @@ import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-interface GitHubApi {
+internal interface GitHubApi {
     @GET("users/{user}/repos")
     suspend fun getUserRepos(
         @Path("user") user: String

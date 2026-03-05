@@ -7,5 +7,5 @@ import com.nfinnova.domain.models.UserRepository
 interface GitHubRepository {
     suspend fun getUserRepositories(username: String): Result<List<UserRepository>>
     suspend fun getRepoHeaderData(username: String, repoName: String): Result<RepoDetailsHeaderData>
-    suspend fun getRepoTags(username: String, repoName: String): List<TagData>
+    suspend fun getRepoTags(username: String, repoName: String): Result<List<TagData>>
 }

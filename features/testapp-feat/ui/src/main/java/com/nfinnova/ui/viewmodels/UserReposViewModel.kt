@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class UserReposViewModel @Inject constructor(
+internal class UserReposViewModel @Inject constructor(
     val getUserRepositoriesUseCase: GetUserRepositoriesUseCase
 ): BaseViewModel<UserReposViewModel.ViewState>() {
 
@@ -21,6 +21,7 @@ class UserReposViewModel @Inject constructor(
             getUserRepositoriesUseCase.invoke(USER_NAME).onSuccess { userRepositories ->
                 reduce(
                     userRepoList = userRepositories,
+                    repoUserName = USER_NAME,
                     screenState = ScreenState.Success
                 )
             }.onFailure {
@@ -31,11 +32,13 @@ class UserReposViewModel @Inject constructor(
 
     private fun reduce(
         userRepoList: List<UserRepository>? = null,
+        repoUserName: String? = null,
         screenState: ScreenState? = null
         ) {
         reduceState {
             it.copy(
                 userRepoList = userRepoList ?: it.userRepoList,
+                repoUserName = repoUserName ?: it.repoUserName,
                 screenState = screenState ?: it.screenState
             )
         }
@@ -43,8 +46,8 @@ class UserReposViewModel @Inject constructor(
 
     data class ViewState(
         val screenState: ScreenState = ScreenState.Loading,
+        val repoUserName: String = "",
         val userRepoList: List<UserRepository> = emptyList(),
-        val someString: String = "Test"
     )
 
     companion object {

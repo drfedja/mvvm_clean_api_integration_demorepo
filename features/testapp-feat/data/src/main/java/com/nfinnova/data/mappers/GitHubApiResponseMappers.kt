@@ -7,12 +7,12 @@ import com.nfinnova.domain.models.RepoDetailsHeaderData
 import com.nfinnova.domain.models.TagData
 import com.nfinnova.domain.models.UserRepository
 
-fun RepoDto.toDomain() = UserRepository(
+internal fun RepoDto.toDomain() = UserRepository(
     repositoryName = name,
     openedIssues = openIssues
 )
 
-fun RepoDetailsResponse.toDomain() = RepoDetailsHeaderData(
+internal fun RepoDetailsResponse.toDomain() = RepoDetailsHeaderData(
     userAvatarUrl = owner.avatarUrl,
     userName = owner.login,
     repoName = name,
@@ -20,7 +20,7 @@ fun RepoDetailsResponse.toDomain() = RepoDetailsHeaderData(
     numberOfWatchers = watchersCount
 )
 
-fun TagDto.toDomain() = TagData(
+internal fun TagDto.toDomain() = TagData(
     commitName = name,
     commitSha = commit.sha
 )

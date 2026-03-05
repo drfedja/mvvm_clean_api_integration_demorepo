@@ -9,7 +9,7 @@ import com.nfinnova.domain.models.UserRepository
 import com.nfinnova.domain.repository.GitHubRepository
 import javax.inject.Inject
 
-class GitHubRepositoryImpl @Inject constructor(
+internal class GitHubRepositoryImpl @Inject constructor(
     private val gitHubApi: GitHubApi
 ) : GitHubRepository, ApiHandler {
 
@@ -35,10 +35,10 @@ class GitHubRepositoryImpl @Inject constructor(
     override suspend fun getRepoTags(
         username: String,
         repoName: String
-    ): List<TagData> {
+    ): Result<List<TagData>> {
         return handleApi(
             execute = { gitHubApi.getRepoTags(username, repoName) },
             mapper = { map { it.toDomain() } }
-        ).getOrNull().orEmpty()
+        )
     }
 }

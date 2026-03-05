@@ -30,19 +30,25 @@ fun NavHostProvider() {
                 route = NavGraph.RepoHome.route
             ) {
                 UserReposScreen(
-                    onNavigate = {
-                        navController.navigate(NavGraph.RepoDetails.route)
+                    onNavigate = { userName, repoName ->
+                        navController.navigate(
+                            NavGraph.RepoDetails.createRoute(userName, repoName)
+                        )
                     }
                 )
             }
 
             composable(
                 route = NavGraph.RepoDetails.route
-            ) {
+            ) { backstackEntry ->
+                val user = backstackEntry
+                    .arguments?.getString(NavGraph.RepoDetails.USER).orEmpty()
+                val repo = backstackEntry
+                    .arguments?.getString(NavGraph.RepoDetails.REPO).orEmpty()
+
                 RepoDetailsScreen(
-                    onBack = {
-                        navController.popBackStack()
-                    }
+                    user = user,
+                    repo = repo
                 )
             }
         }
