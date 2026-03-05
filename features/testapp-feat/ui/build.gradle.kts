@@ -48,6 +48,7 @@ dependencies {
 
     // compose and material
     implementation(libs.androidx.compose.runtime)
+    debugImplementation(libs.androidx.compose.ui.tooling)
     implementation(libs.material)
     implementation(libs.androidx.material3)
 
