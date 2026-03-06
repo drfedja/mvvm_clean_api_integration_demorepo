@@ -1,6 +1,7 @@
 package com.nfinnova.ui.composables
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -22,6 +23,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -50,7 +52,7 @@ fun RepoDetailsScreen(
         }
 
         Box(
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier.fillMaxSize().padding(top = 16.dp)
         ) {
             if (viewState.screenState is ScreenState.Loading) {
                 CircularProgressIndicator(
@@ -101,7 +103,8 @@ private fun RepoHeader(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp),
+            .background(Color.LightGray)
+            .padding(8.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         SubcomposeAsyncImage(

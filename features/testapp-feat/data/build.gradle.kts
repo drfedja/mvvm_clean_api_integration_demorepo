@@ -42,6 +42,8 @@ dependencies {
 
     // junit
     androidTestImplementation(libs.androidx.junit)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.mockk)
     testImplementation(libs.junit)
 
     // retrofit
